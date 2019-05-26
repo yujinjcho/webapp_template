@@ -24,13 +24,6 @@ def auth_callback():
     url = '{}?jwt={}'.format(base_url, jwt)
     return redirect(url)
 
-@app.route('/api/auth/user_info', methods=['GET'])
-def auth_user_info():
-    access_token = app.config['GOOGLE_AUTH']['access_token']
-    refresh_token = app.config['GOOGLE_AUTH']['refresh_token']
-    res = google_auth.get_user_info(access_token, refresh_token)
-    return jsonify(res)
-
 @app.route('/api/validate/account', methods=['GET'])
 def validate_account():
     account_id = helper.validate_request(request)
