@@ -2,7 +2,7 @@
   "name": "front",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:7000",
+  "proxy": "https://localhost:7000",
   "dependencies": {
     "bootstrap": "^4.2.1",
     "lodash": "^4.17.11",
