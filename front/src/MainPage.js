@@ -7,11 +7,7 @@ class MainPage extends Component {
   render() {
     const { accountId } = this.props;
     const msg = `Logged in with ${accountId}`
-    return (
-      <div>
-        {msg}
-      <div/>
-    );
+    return <div> {msg} </div>
   }
 };
 

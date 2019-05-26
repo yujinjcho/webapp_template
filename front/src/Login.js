@@ -22,7 +22,7 @@ class Login extends Component {
     return (
       <div className='login-section'>
         <div className='login-logo'>
-          Walet
+          Project
         </div>
           { authRedirectUrl &&
             <a href={ authRedirectUrl }>
