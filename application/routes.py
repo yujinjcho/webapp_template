@@ -12,17 +12,14 @@ def root():
 #     return render_template('index.html')
     return 'Ok'
 
-
 @app.route('/api/auth/login', methods=['GET'])
 def auth_login():
     return jsonify({'result': google_auth.auth_url(session)})
 
 @app.route('/api/auth/callback', methods=['GET'])
 def auth_callback():
-    jwt = manager.handle_auth_callback(request, session)
-    base_url = app.config['GOOGLE_AUTH']['auth_redirect']
-    url = '{}?jwt={}'.format(base_url, jwt)
-    return redirect(url)
+    redirect_url = manager.handle_auth_callback(request, session)
+    return redirect(redirect_url)
 
 @app.route('/api/validate/account', methods=['GET'])
 def validate_account():

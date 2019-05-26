@@ -21,31 +21,13 @@ def account_by_email(email):
     """
     return _select(query, (email,))
 
-def update_account(account_id, access_token, refresh_token):
-    print('updating account')
-    if refresh_token:
-        query = """
-          UPDATE account
-            SET google_auth_token = %s,
-                google_refresh_token = %s
-          WHERE account_id = %s
-        """
-        return _insert(query, (access_token, refresh_token, account_id))
-
-    query = """
-      UPDATE account
-        SET google_auth_token = %s
-      WHERE account_id = %s
-    """
-    return _insert(query, (access_token, account_id))
-
-def create_account(email, access_token, refresh_token):
+def create_account(email):
     print('creating account')
     query = """
-      INSERT INTO account (google_auth_token, google_refresh_token, email)
-        VALUES (%s, %s, %s)
+      INSERT INTO account (email)
+        VALUES (%s)
     """
-    return _insert(query, (access_token, refresh_token, email))
+    return _insert(query, (email,))
 
 def _insert(query, params):
     db = _connection()
