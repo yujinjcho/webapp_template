@@ -1,3 +1,5 @@
 *.pem
 *.swp
 *.pyc
+venv
+start.sh
