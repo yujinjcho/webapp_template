@@ -5,14 +5,6 @@ from psycopg2.extras import execute_values
 
 from application import app
 
-def store_auth_token(account_id, token):
-    query = """
-      UPDATE account
-        SET google_auth_token = %s
-      WHERE account_id = %s
-    """
-    return _insert(query, (token, account_id))
-
 def account_by_email(email):
     query = """
       SELECT account_id
