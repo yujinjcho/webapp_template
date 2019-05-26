@@ -2,14 +2,10 @@ import os
 
 from flask import jsonify, request, redirect, session, abort, render_template
 
-from application import app
-from application import helper
-from application import google_auth
-from application import manager
+from application import app, google_auth, helper, manager
 
 @app.route('/', methods=['GET'])
 def root():
-#     return render_template('index.html')
     return 'Ok'
 
 @app.route('/api/auth/login', methods=['GET'])
@@ -26,7 +22,3 @@ def validate_account():
     account_id = helper.validate_request(request)
     response = jsonify({'result': account_id}) if account_id else abort(400)
     return response
-
-# @app.route('/<path:path>')
-# def catch_all(path):
-#     return render_template('index.html')
