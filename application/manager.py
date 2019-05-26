@@ -4,8 +4,6 @@ from application import app
 from application import google_auth
 from application import data
 from application import helper
-from application import plaid
-from application import cache
 
 def handle_auth_callback(request, session):
     access_token, refresh_token = google_auth.handle_auth_callback(request, session)

@@ -7,10 +7,10 @@ from application import helper
 from application import google_auth
 from application import manager
 
-# @app.route('/', methods=['GET'])
-# def root():
-#     return 'Ok'
+@app.route('/', methods=['GET'])
+def root():
 #     return render_template('index.html')
+    return 'Ok'
 
 
 @app.route('/api/auth/login', methods=['GET'])
